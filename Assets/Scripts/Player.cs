@@ -32,10 +32,15 @@ public class Player : MonoBehaviour {
             rigidbody2D.velocity += Vector2.up*jumpForce; 
         }
 
-        if (rigidbody2D.velocity.x > 0)
-        {
-            transform.rotation = new Quaternion(0,0,0,0);
+     //   if (rigidbody2D.velocity.x > 0)
+    //   {
+       //     transform.rotation = new Quaternion(0,0,0,0);
 
+     //   }
+      
+        if(Input.GetAxis("Vertical")<0)
+        {
+            transform.localScale *= 0.5f;
         }
         else if(rigidbody2D.velocity.x<0)
         {
