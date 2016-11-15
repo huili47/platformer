@@ -27,39 +27,33 @@ public class Player : MonoBehaviour {
         rigidbody2D.velocity += Vector2.right * x_force; //take the current velocity and add to it
         rigidbody2D.velocity = Vector2.ClampMagnitude(rigidbody2D.velocity, maxSpeed);//clamp means limit magnitude
 
-        // if(Input.GetButtonDown("Jump")&& rigidbody2D.velocity.y==0) allow to fly
         if (Input.GetButtonDown("Jump") && rigidbody2D.velocity.y == 0)
         {
-            rigidbody2D.velocity += Vector2.up*jumpForce; 
+            rigidbody2D.velocity += Vector2.up * jumpForce;
         }
 
-
-      //Duck if needed
-      if(Input.GetAxis("Vertical") < 0 && !isDucking)
-       {
-            //   transform.localScale *= 0.7f;
+        // Duck if needed
+        if (Input.GetAxis("Vertical") < 0 && !isDucking)
+        {
             var s = transform.localScale;
-            s.y *= 0.7f;
+            s.y *= .7f;
             transform.localScale = s;
             isDucking = true;
-
-       }
-
+        }
         if (Input.GetAxis("Vertical") >= 0 && isDucking)
         {
-            //   transform.localScale /= 0.7f;
             var s = transform.localScale;
-            s.y *= 0.7f;
+            s.y /= .7f;
             transform.localScale = s;
             isDucking = false;
-
         }
-        //flip to look in right direction
+
+        // Flip to look in right direction
         if (rigidbody2D.velocity.x > 0)
         {
             transform.rotation = new Quaternion(0, 0, 0, 0);
-
-        }else if(rigidbody2D.velocity.x<0)
+        }
+        else if (rigidbody2D.velocity.x < 0)
         {
             transform.rotation = new Quaternion(0, 180, 0, 0);
         }
