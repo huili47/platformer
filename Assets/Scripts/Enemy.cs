@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
 
     }
 
-    Vector3 direction = new Vector3(-1,-.1f);
+   // 11/17 Vector3 direction = new Vector3(-1,-.1f);
     // Update is called once per frame
     void Update()
     {
@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
          */
 
         //transform.position = Vector3.MoveTowards(transform.position, FindObjectOfType<Player>().transform.position,Time.deltaTime);
-        transform.position = Vector3.Slerp(transform.position, FindObjectOfType<Player>().transform.position, Time.deltaTime);
+       //11/17 transform.position = Vector3.Slerp(transform.position, FindObjectOfType<Player>().transform.position, Time.deltaTime);
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
