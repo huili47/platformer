@@ -31,13 +31,18 @@ public class GM : MonoBehaviour {
 
     public void LifeWasLost()
     {
-        lives--;
-        livesText.text = lives.ToString();
+      
 
-        if(lives==0)
+        if(lives!=0)
+        {
+            lives--;
+            livesText.text = lives.ToString();
+
+        }
+        else
         {
             loseSign.SetActive(true);
-
+            Time.timeScale = 0;
         }
     }
 }
